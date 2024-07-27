@@ -1,0 +1,62 @@
+﻿@model IEnumerable<SportsClub.Models.Sport>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Sports Index</h1>
+
+<p>
+    <a asp-action="Create" class="btn btn-success">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Description)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Description)
+            </td>
+            <td>
+                     <a asp-controller="Sports"
+                                            asp-action="Details"
+                                            asp-route-id="@item.Id"
+                                        style="text-decoration:none"
+                                        class="btn btn-success"
+                                        title="Detalis">
+                                            <i class="bi bi-list-ul"></i>
+                                        </a>
+                                            <a asp-controller="Sports"
+                                            asp-action="Edit"
+                                            asp-route-id="@item.Id"
+                                            style="text-decoration:none"
+                                            class="btn btn-primary"
+                                            title="Edit">
+                                            <i class="bi bi-pencil-square"></i>
+                                        </a>
+                                                <a asp-controller="Sports"
+                                            asp-action="Delete"
+                                            asp-route-id="@item.Id"
+                                            style="text-decoration:none"
+                                            class="btn btn-danger"
+                                            title="Delete">
+                                            <i class="bi bi-trash"></i>
+                                        </a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

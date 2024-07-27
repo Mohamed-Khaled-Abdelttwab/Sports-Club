@@ -1,0 +1,47 @@
+﻿@model SportsClub.Models.Sport
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div>
+    <h4>Sport</h4>
+    <hr />
+    <dl class="row">
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Name)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Name)
+        </dd>
+        <dt class = "col-sm-2">
+            @Html.DisplayNameFor(model => model.Description)
+        </dt>
+        <dd class = "col-sm-10">
+            @Html.DisplayFor(model => model.Description)
+        </dd>
+    </dl>
+    @if (Model.Players.Count() > 0)
+    {
+        <ul class ="list-group text-center col-4">
+            <li class="list-group-item active border">Players</li>
+            @foreach (var player in Model.Players)
+            {
+                        <li class="list-group-item list-group-item-action">@player.FullName (@player.PlayerPosition)</li>
+            }
+            </ul>
+
+    }
+    else
+    {
+            <h1 class="alert alert-danger text-center col-4" style="color: darkred">There is no Players</h1>
+    }
+</div>
+<div>
+    <a asp-action="Edit" asp-route-id="@Model?.Id"  class="btn btn-success mt-1">Edit</a> 
+    <div class="mt-1">
+    <a asp-action="Index"  class="btn btn-primary" >Back to List</a>
+    </div>
+</div>

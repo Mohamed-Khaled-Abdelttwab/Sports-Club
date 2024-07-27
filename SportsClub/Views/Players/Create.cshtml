@@ -1,0 +1,88 @@
+﻿@model Player
+<h1 class="alert alert-success text-center">Ceate Player</h1>
+
+<form method="post" asp-controller="Players" asp-action="AddNew" class="col-4" enctype="multipart/form-data">
+
+	<div asp-validation-summary="ModelOnly" class="text-danger"></div>
+	<div>
+		<label asp-for="FullName" class="form-table"></label>
+		<input type="text" asp-for="FullName" class="form-control"/>
+		<span asp-validation-for="FullName" class="text-danger"></span>
+	</div>
+		<div>
+		<label asp-for="NationalId"class="form-table"></label>
+		<input type="text" asp-for="NationalId" class="form-control"/>
+		<span asp-validation-for="NationalId" class="text-danger"></span>
+		</div>
+
+		<div>
+		<label asp-for="SportId" class="form-table"></label>
+		 <select class="form-control" asp-for="SportId"
+		 asp-items="@(new SelectList(ViewBag.AllSports,"Id", "Description"))">
+		 <option selected disabled value="0" >Select a Sport...</option>
+		 </select>
+		</div>
+
+		<div>
+		<label asp-for="PlayerPosition"class="form-table"></label>
+		<input type="text" asp-for="PlayerPosition" class="form-control"/>
+		<span asp-validation-for="PlayerPosition" class="text-danger"></span>
+	</div>
+		<div>
+		<label asp-for="Salary" class="form-table"></label>
+		<input type="text" asp-for="Salary" class="form-control"/>
+		<span asp-validation-for="Salary" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="Birthdate" class="form-table"></label>
+		<input asp-for="Birthdate" class="form-control"/>
+		<span asp-validation-for="Birthdate" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="PlayerRegistrationDate" class="form-table"></label>
+		<input asp-for="PlayerRegistrationDate" class="form-control"/>
+		<span asp-validation-for="PlayerRegistrationDate" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="Attendence" class="form-table"></label>
+		<input asp-for="Attendence" class="form-control"/>
+		<span asp-validation-for="Attendence" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="PhoneNumber" class="form-table"></label>
+		<input asp-for="PhoneNumber" class="form-control"/>
+		<span asp-validation-for="PhoneNumber" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="EmailAddress" class="form-table"></label>
+		<input asp-for="EmailAddress" class="form-control"/>
+		<span asp-validation-for="EmailAddress" class="text-danger"></span>
+		</div>
+		<div>
+		<label asp-for="ConfirmationEmailAddress" class="form-table"></label>
+		<input asp-for="ConfirmationEmailAddress" class="form-control"/>
+		<span asp-validation-for="ConfirmationEmailAddress" class="text-danger"></span>
+		</div>
+		<div class="mt-3">
+		<label asp-for="Notes" class="form-table"></label>
+		<input asp-for="Notes" class="form-control"/>
+		</div>
+		<div>
+			<label asp-for="ImageFile" class="form-table"></label>
+			<input type="file" name="ImageFile" id="imageFile" 
+				accept=".png,.jpg" class="form-control"
+				onchange="AddImage()"/>
+		</div>
+	<div >
+	<button type="submit" class="btn btn-primary col-12 mt-1">Add</button>
+	<a asp-controller="Players" asp-action="GetIndexView" class="btn btn-primary col-12 mt-1">Back to list</a>
+	</div>
+</form>
+<img src="" id="playerImage" style="width:100%; aspect-ratio:1/1" class="card" />
+@section Scripts {
+	<script>
+		function AddImage() {
+				document.getElementById("playerImage").src = window.URL.createObjectURL(document.getElementById("imageFile").files[0]);
+			}
+	</script>
+}

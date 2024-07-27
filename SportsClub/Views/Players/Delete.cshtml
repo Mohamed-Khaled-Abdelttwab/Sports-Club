@@ -1,0 +1,33 @@
+﻿@model Player
+<h1 class="alert alert-danger text-center" style="color:black;">
+	Are you sure you want to delete this Player?
+</h1>
+<dl class="row">
+	<dt class="col-2">Id</dt>
+	<dd class="col-10">@Model.Id</dd>
+	<dt class="col-2">Full Name</dt>
+	<dd class="col-10">@Model.FullName</dd>
+	<dt class="col-2">National Id</dt>
+	<dd class="col-10">@Model.NationalId</dd>
+	<dt class="col-2">Depatment</dt>
+	<dd class="col-10">@Model.sport.Name (@Model.sport.Description)</dd>
+	<dt class="col-2">Position</dt>
+	<dd class="col-10">@Model.PlayerPosition</dd>
+	<dt class="col-2">Salary</dt>
+	<dd class="col-10">@Model.Salary</dd>
+	<dt class="col-2">Birth Date</dt>
+	<dd class="col-10">@Model.Birthdate</dd>
+	<dt class="col-2">Hiring Date And Time</dt>
+	<dd class="col-10">@Model.PlayerRegistrationDate</dd>
+	<dt class="col-2">Attendence Time</dt>
+	<dd class="col-10">@Model.Attendence</dd>
+	<dt class="col-2">Phone Number</dt>
+	<dd class="col-10">@Model.PhoneNumber</dd>
+	<dt class="col-2">Email Address</dt>
+	<dd class="col-10">@Model.EmailAddress</dd>
+</dl>
+<form method="post" asp-controller="Players" asp-action="DeleteCurrent">
+	<input type="hidden" asp-for="Id" />
+	<button type="submit" class ="btn btn-danger">Delete</button>
+</form>
+<a asp-controller="Players" asp-action="GetIndexView" class="btn btn-primary col-1 mt-1">Back to List</a>

@@ -1,0 +1,33 @@
+﻿@model Player
+<h1 style= "background-color:cyan; color:maroon; text-align:center">Players Details</h1>
+
+<div class="row">	
+<dl class="row col-6">
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.Id)</dt>
+	<dd class="col-10">@Model.Id</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.FullName)</dt>
+	<dd class="col-10">@Model.FullName </dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.NationalId)</dt>
+	<dd class="col-10">@Model.NationalId</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.sport)</dt>
+	<dd class="col-10">@Model.sport.Name</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.PlayerPosition)</dt>
+	<dd class="col-10">@Model.PlayerPosition</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.Salary)</dt>
+	<dd class="col-10">@Model.Salary</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.Birthdate)</dt>
+	<dd class="col-10">@Model.Birthdate</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.PlayerRegistrationDate)</dt>
+	<dd class="col-10">@Model.PlayerRegistrationDate</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.Attendence)</dt>
+	<dd class="col-10">@Model.Attendence</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.PhoneNumber)</dt>
+	<dd class="col-10">@Model.PhoneNumber</dd>
+	<dt class="col-2">@Html.DisplayNameFor(emp => emp.EmailAddress)</dt>
+	<dd class="col-10">@Model.EmailAddress</dd>
+</dl>
+<div class="col-6">
+		<img src="@Model.ImagePath" style="width:30rem;" />
+	</div>
+</div>
+<a asp-controller="Players" asp-action="GetIndexView" class="btn btn-primary">Back to List</a>
